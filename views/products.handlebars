@@ -1,0 +1,71 @@
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Products</title>
+    </head>
+    <body>
+
+     
+
+        <div class="products">
+            <h2>Products</h2>
+
+            <h3>Add a Product</h3>
+
+            <form class="products-form" action="/products" method="post">
+                
+                <input type="text" class="products-text" name="pname" placeholder="Product Name">
+                <br>
+                <input type="text" class="products-text" name="pprice" placeholder="Price">
+                <br>
+                <input type="text" class="products-text" name="pbrand" placeholder="Brand">
+                <br>
+                <input type="text" class="products-text" name="pcategory" placeholder="Category">
+                <br>
+                <input type="submit" class="addBtn" value="Add Product">
+            </form>
+            
+            <br>
+
+            <button class="searchBtn"><a href="searchProduct.html">Search Product</a></button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Brand</th>
+                        <th>Category</th>
+                        <th>Store ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {{#each locations}}
+                    <tr>
+                        <td>{{productID}}</td>
+                        <td>{{productName}}</td>
+                        <td>{{price}}</td>
+                        <td>{{brand}}</td>
+                        <td>{{category}}</td>
+                        <td>{{storeID}}</td>
+                        <td><button class="editBtn"><a href="editProduct.html">Edit</a></button></td>
+                        <td><button class="deleteBtn" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+        <script>
+            function deleteRow(delBtn) {
+                var row = delBtn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+          
+        </script>
+    </body>
+</html>

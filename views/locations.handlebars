@@ -1,0 +1,84 @@
+
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Locations</title>
+    </head>
+    <body>
+
+
+        <div class="locations">
+            <h2>Locations</h2>
+
+            <h3>Add Location</h3>
+
+            <form class="locations-form" action="/locations" method="post">
+                
+                <label>Street:</label>
+                <input type="text" class="locations-text" name="locStreet">
+                <br>
+                <label>City:</label>
+                <input type="text" class="locations-text" name="locCity">
+                <br>
+                <label>State:</label>
+                <input type="text" class="locations-text" name="locState">
+                <br>
+                <label>Zip:</label>
+                <input type="text" class="locations-text" name="locZip">
+                <br>
+                <label>Country:</label>
+                <input type="text" class="locations-text" name="locCountry">
+                <br>
+                <label>Phone Number:</label>
+                <input type="text" class="locations-text" name="locPhone">
+                <br>
+                <input type="submit" class="addBtn" value="Add Location">
+            </form>
+
+            <br>
+
+            <button class="searchBtn"><a href="searchLocation.html">Search Location</a></button>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Store ID</th>
+                        <th>Street</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Zip</th>
+                        <th>Country</th>
+                        <th>Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each locations}}
+                    <tr>
+                        <td>{{storeID}}</td>
+                        <td>{{street}}</td>
+                        <td>{{city}}</td>
+                        <td>{{state}}</td>
+                        <td>{{zip}}</td>
+                        <td>{{country}}</td>
+                        <td>{{phoneNumber}}</td>
+                        <td><button class="editBtn"><a href="editLocation.html">Edit</a></button></td>
+                        <td><button class="deleteBtn" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            function deleteRow(delBtn) {
+                var row = delBtn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+          
+        </script>
+
+        </body>
+</html>
