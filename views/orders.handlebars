@@ -1,0 +1,88 @@
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title>Orders</title>
+
+    </head>
+
+    <body>
+
+
+        <div class="orders">
+            <h2>Orders</h2>
+
+            <h3>Add Order</h3>
+
+            <form class="add-form" action="/orders" method="post">
+                
+                <label>Customer ID:</label><br>
+                <input type="text" class="form-text" name="firstName">
+                <br>
+                <label>Order Status:</label><br>
+                <input type="text" class="form-text" name="lastName">
+                <br>
+                <label>Order Date:</label><br>
+                <input type="text" class="form-text" name="username">
+                <br>
+                <label>Shipped Date:</label><br>
+                <input type="text" class="form-text" name="password">
+                <br>
+                <label>Store ID:</label><br>
+                <input type="text" class="form-text" name="dateOfBirth">
+                <br>
+                <label>Payment:</label><br>
+                <input type="text" class="form-text" name="phoneNumber">
+                <br>
+                <input type="submit" class="addBtn" value="Add Order">
+            </form>
+            <br>
+
+            <button class="searchBtn"><a href="searchOrder.handlebars">Search Order</a></button>
+
+			<h3>All Orders</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer ID</th>
+                        <th>Order Status</th>
+                        <th>Order Date</th>
+                        <th>Shipped Date</th>
+                        <th>Store ID</th>
+                        <th>Payment</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orders}}
+                    <tr>
+                        <td>{{orderID}}</td>
+                        <td>{{customerID}}</td>
+                        <td>{{orderStatus}}</td>
+                        <td>{{orderDate}}</td>
+                        <td>{{shippedDate}}</td>
+                        <td>{{storeID}}</td>
+                        <td>{{payment}}</td>
+                        <td><button class="editBtn"><a href="editOrder.handlebars">Edit</a></button></td>
+                        <td><button class="deleteBtn" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            function deleteRow(delBtn) {
+                var row = delBtn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        </script>
+    </body>
+</html>

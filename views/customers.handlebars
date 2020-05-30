@@ -1,0 +1,118 @@
+<html>
+
+    <head>
+
+        <meta charset="UTF-8">
+
+        
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <title>Customers</title>
+
+    </head>
+
+    <body>
+
+
+        <div class="customers">
+            <h2>Customers</h2>
+
+            <h3>Add Customer</h3>
+
+            <form class="add-form" action="/customers" method="post">
+                
+                <label>First Name:</label><br>
+                <input type="text" class="form-text" name="firstName">
+                <br>
+                <label>Last Name:</label><br>
+                <input type="text" class="form-text" name="lastName">
+                <br>
+                <label>Username:</label><br>
+                <input type="text" class="form-text" name="username">
+                <br>
+                <label>Password:</label><br>
+                <input type="text" class="form-text" name="password">
+                <br>
+                <label>Date of Birth:</label><br>
+                <input type="text" class="form-text" name="dateOfBirth">
+                <br>
+                <label>Phone Number:</label><br>
+                <input type="text" class="form-text" name="phoneNumber">
+                <br>
+                <label>Email:</label><br>
+                <input type="text" class="form-text" name="email">
+                <br>
+                <label>Street:</label><br>
+                <input type="text" class="form-text" name="street">
+                <br>
+                <label>City:</label><br>
+                <input type="text" class="form-text" name="city">
+                <br>
+                <label>State:</label><br>
+                <input type="text" class="form-text" name="state">
+                <br>
+                <label>Zip:</label><br>
+                <input type="text" class="form-text" name="zip">
+                <br>
+                <label>Country:</label><br>
+                <input type="text" class="form-text" name="country">
+                <br>
+
+                <input type="submit" class="addBtn" value="Add Customer">
+            </form>
+            <br>
+
+            <button class="searchBtn"><a href="searchCustomer.handlebars">Search Customer</a></button>
+
+			<h3>All Customers</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Date of Birth</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>street</th>
+                        <th>city</th>
+                        <th>state</th>
+                        <th>zip</th>
+                        <th>country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each customers}}
+                    <tr>
+                        <td>{{customerID}}</td>
+                        <td>{{firstName}}</td>
+                        <td>{{lastName}}</td>
+                        <td>{{username}}</td>
+                        <td>{{password}}</td>
+                        <td>{{dateOfBirth}}</td>
+                        <td>{{phoneNumber}}</td>
+                        <td>{{email}}</td>
+                        <td>{{street}}</td>
+                        <td>{{city}}</td>
+                        <td>{{state}}</td>
+                        <td>{{zip}}</td>
+                        <td>{{country}}</td> 
+                        <td><button class="editBtn"><a href="editCustomers.handlebars">Edit</a></button></td>
+                        <td><button class="deleteBtn" onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+
+        <script>
+            function deleteRow(delBtn) {
+                var row = delBtn.parentNode.parentNode;
+                row.parentNode.removeChild(row);
+            }
+        </script>
+    </body>
+</html>
