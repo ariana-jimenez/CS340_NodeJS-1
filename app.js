@@ -22,8 +22,8 @@ app.set('mysql', mysql);
 // Configure port
 app.set('port', 23246);
 
-//app.use('/orders', require('./orders.js'));
-//app.use('/customers', require('./customers.js'));
+app.use('/orders', require('./orders.js'));
+app.use('/customers', require('./customers.js'));
 app.use('/products', require('./products.js'));
 app.use('/locations', require('./locations.js'));
 
